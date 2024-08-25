@@ -47,12 +47,12 @@
 - JSON:[ JSON](https://www.npmjs.com/package/json)
 - Render:[ Render ](https://render.com/)
 - Node.js [Version v20.15.0](https://nodejs.org/en)
-- Express.js:[Express.js](https://expressjs.com/en/starter/installing.html)
+- Express.js: [Express.js](https://expressjs.com/en/starter/installing.html)
 - Visual Studio Code: [Website](https://code.visualstudio.com/)
 - JavaScript
    
    ## Screenshot
 
-   ![Mockup-image](assets/screenshot.png)
+   ![Mockup-image](assets/Screenshot.png)
    
    
