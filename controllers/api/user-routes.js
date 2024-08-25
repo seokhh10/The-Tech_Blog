@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { User, Post, Comment } = require('../../models');
 router.get('/', (req, res) => {
     User.findAll({
-            attributes: { exclude: ['[password'] }
+            attributes: { exclude: ['password'] }
         })
         .then(dbUserData => res.json(dbUserData))
         .catch(err => {
@@ -34,10 +34,6 @@ router.get('/:id', (req, res) => {
                         model: Post,
                         attributes: ['title']
                     }
-                },
-                {
-                    model: Post,
-                    attributes: ['title'],
                 }
             ]
         })
@@ -64,7 +60,7 @@ router.post('/', (req, res) => {
 
     .then(dbUserData => {
             req.session.save(() => {
-                req.session.user_id = dbUserData.id;
+                req.session.user_id = parseInt(dbUserData.id, 10);
                 req.session.username = dbUserData.username;
                 req.session.loggedIn = true;
 
@@ -95,7 +91,7 @@ router.post('/login', (req, res) => {
             }
             req.session.save(() => {
 
-                req.session.user_id = dbUserData.id;
+                req.session.user_id = parseInt(dbUserData.id, 10);
                 req.session.username = dbUserData.username;
                 req.session.loggedIn = true;
 
@@ -158,6 +154,5 @@ router.delete('/:id', (req, res) => {
             res.status(500).json(err);
         });
 });
-
 
 module.exports = router;

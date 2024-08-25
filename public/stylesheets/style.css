@@ -114,6 +114,11 @@
     .nav-item a {
       color: var(--primary);
     }
+
+    a.link {
+      color: var(--primary-color); 
+      margin-right: 15px;
+  }
     
     .hero {
       padding: 3% 4%;

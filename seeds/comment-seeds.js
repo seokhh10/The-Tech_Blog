@@ -1,6 +1,7 @@
 const { Comment } = require('../models');
 
-const commentData = [{
+const commentData = [
+    {
         comment_text: "Comment number one",
         user_id: 1,
         post_id: 1
@@ -17,6 +18,15 @@ const commentData = [{
     }
 ];
 
-const seedComments = () => Comment.bulkCreate(commentData);
+const seedComments = async () => {
+    try {
+        await Comment.bulkCreate(commentData, {
+            returning: true, // Optional, returns created instances
+        });
+        console.log('Comments seeded successfully');
+    } catch (error) {
+        console.error('Error seeding comments:', error);
+    }
+};
 
 module.exports = seedComments;
